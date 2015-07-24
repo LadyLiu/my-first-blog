@@ -1,19 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Lady Liu's blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="">Lady Liu's Blog</a></h1>
-        </div>
+{% extends "blog/base.html" %}
 
-        {% for post in posts  %}
-            <div>
-                <p>published: {{ post.published_date }}</p>
-                <h1><a href="">{{ post.title }}</a></h1>
-                <p>{{ post.text|linebreaks }}</p>
-            </div>
-        {% endfor %}
-    </body>
-</html>
+{% block content %}
+    {% for post in posts  %}
+        <div class="post">
+            <p>published: {{ post.published_date }}</p>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaks }}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}
